@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 var APP_DIR = path.resolve(__dirname, 'src');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var commomConfig = {
     entry: './src/main.js',
@@ -78,14 +79,7 @@ var commomConfig = {
                 NODE_ENV: '"production"'
             }
         }),
-        new webpack.optimize.UglifyJsPlugin( {
-            minimize : true,
-            sourceMap : false,
-            mangle: true,
-            compress: {
-                warnings: false
-            }
-        } ),
+        new webpack.optimize.UglifyJsPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: true
@@ -96,23 +90,22 @@ var commomConfig = {
 
 module.exports = [
     // library for browser - form template
-    merge(commomConfig, {
-        entry: path.resolve(__dirname + '/src/main.js'),
-        output: {
-            path: path.resolve(__dirname, './dist'),
-            publicPath: '/dist/',
-            filename: 'vue-form-builder.browser.min.js',
-            libraryTarget: 'window',
-            library: 'FormBuilder',
-        },
-    }),
-
+    // merge(commomConfig, {
+    //     entry: path.resolve(__dirname + '/src/template/index.js'),
+    //     output: {
+    //         path: path.resolve(__dirname, './browser'),
+    //         publicPath: '/browser/',
+    //         filename: 'vue-form-builder.browser.min.js',
+    //         libraryTarget: 'window',
+    //         library: 'FormBuilder',
+    //     },
+    // }),
+    //
     // library for node - form GUI
     merge(commomConfig, {
         entry: './src/FormBuilder.vue',
         output: {
             path: path.resolve(__dirname, './dist'),
-            // path: '/Applications/XAMPP/xamppfiles/htdocs/formbuilder/webpack-form-builder/node_modules/v-form-builder/dist',
             // path: path.resolve(__dirname, '../test-form/node_modules/v-form-builder/dist'),
             // path: path.resolve(__dirname, '../VueProject/test-form/node_modules/v-form-builder/dist'),
             publicPath: '/dist/',

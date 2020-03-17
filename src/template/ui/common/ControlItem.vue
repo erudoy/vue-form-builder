@@ -16,7 +16,7 @@
 
                 <!-- demo for select -->
                 <select class="form-control" v-if="control.type == 'select'" :name="control.fieldName">
-                    <option disabled selected>Options</option>
+                    <option disabled selected>Опции</option>
                     <option v-for="option in control.dataOptions">{{option.text}}</option>
                 </select>
 
@@ -47,7 +47,7 @@
 
                     <!-- demo for select -->
                     <select class="form-control" v-if="control.type == 'select'" :name="control.fieldName">
-                        <option disabled selected>Options</option>
+                        <option disabled selected>Опции</option>
                         <option v-for="option in control.dataOptions">{{option.text}}</option>
                     </select>
 
@@ -91,10 +91,7 @@
                 ControlHandler.clearSelect();
                 ControlHandler.setSelect(this.control.name);
                 eventBus.$emit(EventHandlerConstant.ACTIVATE_EDITOR_SIDEBAR, _.cloneDeep(this.control));
-            },
-            updating() {
-
-            },
+            }
         },
         created() {
             let self = this;
@@ -106,7 +103,7 @@
 
                 // check if existed name in this section
                 if (control.fieldName !== oldControl.fieldName && ControlHandler.isControlNameExisted(this.$parent.row.name, control.fieldName)) {
-                    SethPhatToaster.error("This field Name is already existed in the current section.");
+                    SethPhatToaster.error("Название поля уже используется в этой секции");
                     return;
                 }
 
@@ -162,7 +159,7 @@
                 // solving default value
                 switch (this.control.type) {
                     case 'text':
-                        return "Text here";
+                        return "Ваш текст";
                     case 'datepicker':
                         if (this.control.isTodayValue) {
                             return moment().format(CONTROL_CONSTANTS.DateFormat[this.control.dateFormat]);

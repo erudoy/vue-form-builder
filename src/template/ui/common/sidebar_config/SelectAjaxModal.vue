@@ -5,21 +5,21 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Select Data Source Note</h4>
+                    <h4 class="modal-title">Выбор источника данных</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <p>Your URL for Ajax Request must return a JSON string, array like this:</p>
+                    <p>Ajax-запрос с данного URL-адреса должен возвращать строку в формате JSON:</p>
                     <pre><code>{{demoData}}</code></pre>
-                    <p>Or like this:</p>
+                    <p>Либо в данном виде:</p>
                     <pre><code>{{demoData2}}</code></pre>
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
                 </div>
 
             </div>
@@ -33,8 +33,8 @@
         data: () => ({
             demoData: ['choice1', 'choice2', 'choice3'],
             demoData2: [
-                {id: 1, text: "Category 1"},
-                {id: 2, text: "Category 2"},
+                {id: 1, text: "Категория 1"},
+                {id: 2, text: "Категория 2"},
             ],
             modal: null,
         }),

@@ -6,44 +6,44 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Section Configuration</h4>
+                        <h4 class="modal-title">Конфигурация секции</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
 
                     <!-- Modal body -->
                     <div class="modal-body" v-if="section !== null">
                         <div class="form-group">
-                            <label>Section Client Key</label>
+                            <label>Код секции</label>
                             <input type="text" class="form-control" v-model="section.clientKey">
                         </div>
                         <div class="form-group">
-                            <label>Label Position</label>
+                            <label>Положение надписей</label>
                             <select class="form-control" v-model="section.labelPosition">
-                                <option value="left">Horizontal</option>
-                                <option value="top">Vertical</option>
+                                <option value="left">Горизонтальное</option>
+                                <option value="top">Вертикальное</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label><input type="checkbox" v-model="section.isDynamic"> Is Dynamic Form?</label>
+                            <label><input type="checkbox" v-model="section.isDynamic"> Динамическая форма</label>
                         </div>
 
                         <div class="row" v-if="section.isDynamic">
                             <div class="col-md-6">
-                                <label>Min instance</label>
+                                <label>Мин. кол-во экз.</label>
                                 <input type="number"
                                        min="0"
                                        class="form-control"
                                        data-toggle='tooltip'
-                                       title="Minimum instance for dynamic section"
+                                       title="Минимальное количество экземпляров для динамической секции"
                                        v-model="section.minInstance">
                             </div>
                             <div class="col-md-6">
-                                <label>Max instance</label>
+                                <label>Макс. кол-во экз.</label>
                                 <input type="number"
                                        min="0"
                                        class="form-control"
                                        data-toggle='tooltip'
-                                       title="Maximum instance for dynamic section. 0 for unlimited."
+                                       title="Максимальное количество экземпляров для динамической секции. 0 - без ограничений"
                                        v-model="section.maxInstance">
                             </div>
                         </div>
@@ -51,8 +51,8 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" @click="save">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" @click="save">Сохранить</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
                     </div>
 
                 </div>

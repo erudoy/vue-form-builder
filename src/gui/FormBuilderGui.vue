@@ -25,7 +25,7 @@
             setValue(values) {
                 if (!_.isObject(values))
                 {
-                    console.error("Invalid values for Form GUI!");
+                    console.error("Неверные значения для формы!");
                     return;
                 }
 

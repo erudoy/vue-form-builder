@@ -2,7 +2,7 @@
     <div>
         <div class="controlSidebar list-group" v-show="!isConfig">
             <a href="#" class="list-group-item active">
-                Supported Controls
+                Типы полей
             </a>
             <div id="sidebarControls">
                 <a href="javascript:void(0)" class="list-group-item list-group-item-action control-wrapper"
@@ -23,36 +23,28 @@
                     </div>
                 </div>
 
-                <base-config-component :control="controlInfo"></base-config-component>
-
-                <component v-if="configComponent != null"
-                           :is="configComponent"
-                           :control="controlInfo">
-                </component>
-
-                <base-style-component :control="controlInfo"></base-style-component>
+                <sidebar-config-item :control="controlInfo">
+                </sidebar-config-item>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import {CONTROL_TYPES} from "sethFormBuilder/config/control_constant";
+    import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
     import {eventBus, EventHandlerConstant} from 'sethFormBuilder/template/handler/event_handler';
+    import SidebarConfigItem from "./common/SidebarConfigItem";
     import {ControlHandler} from 'sethFormBuilder/template/handler/control_handler';
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     import {Hooks} from 'sethFormBuilder/template/components/hook_lists';
-    import BaseConfigComponent from "./sidebar_items/BaseConfigComponent";
-    import BaseStyleComponent from "./sidebar_items/BaseStyleComponent";
 
     export default {
-        components: {BaseStyleComponent, BaseConfigComponent, FontAwesomeIcon},
+        components: {SidebarConfigItem, FontAwesomeIcon},
         name: "sidebar-component",
         data: () => ({
-            controls: CONTROL_TYPES,
+            controls: FORM_CONSTANTS.Type,
             isConfig: false,
-            controlInfo: null,
-            configComponent: null,
+            controlInfo: null
         }),
         methods: {
             closeEditSidebar() {
@@ -81,7 +73,6 @@
             }
         },
         created() {
-            // catch event activate sidebar here
             eventBus.$on(EventHandlerConstant.ACTIVATE_EDITOR_SIDEBAR, controlInfo => {
                 // before hook here
                 let b4Run = Hooks.Sidebar.beforeOpenConfig.runSequence(controlInfo);
@@ -92,12 +83,6 @@
                 // open config
                 this.isConfig = true;
                 this.controlInfo = controlInfo;
-                this.configComponent = null;
-
-                // retrieve config component
-                if (_.accessStr(this.controls[controlInfo.type], 'source.config')){
-                    this.configComponent = this.controls[controlInfo.type].source.config;
-                }
 
                 // after hook here
                 Hooks.Sidebar.afterOpenConfig.run(this.controlInfo);

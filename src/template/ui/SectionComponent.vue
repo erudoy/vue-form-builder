@@ -4,17 +4,17 @@
 
             <div class="col-md-2">
                 <select class="form-control" v-model="form.layout">
-                    <option value="" disabled selected>Select layout</option>
-                    <option v-for="(value, key) in layouts" :value="key">{{value}} layout</option>
+                    <option value="" disabled selected>Выбор макета</option>
+                    <option v-for="(value, key) in layouts" :value="key">{{value}}</option>
                 </select>
             </div>
             <div class="col-md-10 text-right">
                 <button class="btn btn-default" @click="preview">
                     <font-awesome-icon icon="image"/>
-                    Preview
+                    Просмотр
                 </button>
 
-                <button class="btn btn-default" @click="addSection">Add Section</button>
+                <button class="btn btn-default" @click="addSection">Добавить секцию</button>
             </div>
         </div>
 
@@ -24,13 +24,13 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" class="form-control" placeholder="Section Label" v-model="section.label">
+                                <input type="text" class="form-control" placeholder="Название секции" v-model="section.label">
                             </div>
                             <div class="col-md-8 text-right">
                                 <p style="margin-top: 5px;">
-                                    <span class="pr-2 clickable" @click="addRow(index)"><font-awesome-icon icon="plus"/> Add Row</span>
-                                    <span class="pr-2 clickable" @click="delSection(index)"><font-awesome-icon icon="times"/> Remove Section</span>
-                                    <span class="pr-2 clickable" @click="configSection(index)"><font-awesome-icon icon="cog"/> Section Config</span>
+                                    <span class="pr-2 clickable" @click="addRow(index)"><font-awesome-icon icon="plus"/> Новый ряд</span>
+                                    <span class="pr-2 clickable" @click="delSection(index)"><font-awesome-icon icon="times"/> Удалить секцию</span>
+                                    <span class="pr-2 clickable" @click="configSection(index)"><font-awesome-icon icon="cog"/> Настройка секции</span>
                                     <span class="clickable collapsed" data-toggle="collapse" :data-target="'#' + section.name + '_body'">
                                         <i class="fa fa-fw fa-chevron-up"></i>
                                         <i class="fa fa-fw fa-chevron-down"></i>
@@ -92,7 +92,7 @@
             delSection(secIndex) {
                 // make sure no dependencies
                 if (this.form.sections[secIndex].rows.length > 0) {
-                    SethPhatToaster.error("Can't remove this section because it's still have row(s) inside.");
+                    SethPhatToaster.error("Секция содержит ряды. Удаление невозможно!");
                     return;
                 }
 
@@ -160,16 +160,10 @@
             $("#sectionWrapper").sortable({
                 cursor: "move",
                 delay: 200,
-                placeholder: "ui-state-highlight",
                 update: function (event, ui) {
                     self.traverseSection();
-                },
-                start: function(e, ui){
-                    ui.placeholder.height(ui.item.height());
-                    ui.placeholder.css("border", "");
-                    ui.placeholder.css("background-color", "#3498db");
                 }
-            }).disableSelection();
+            });
         },
         updated() {
             this.form._uniqueId = Math.random();
@@ -196,9 +190,5 @@
     .accordion .fa-chevron-up {
         display: inline-block;
     }
-    .ui-state-highlight {
-        height: 2.5em;
-        line-height: 1.2em;
-        margin-top: .5em;
-    }
+
 </style>

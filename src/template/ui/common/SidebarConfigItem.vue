@@ -9,20 +9,20 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Control type</label>
+                    <label>Тип</label>
                     <input type="text" readonly class="form-control" :value="typeFirstUpper">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Name</label>
+                    <label>Название</label>
                     <input type="text" class="form-control" v-model="control.fieldName"
-                           data-toggle="tooltip" title="Field Name must be UNIQUE in Section!">
+                           data-toggle="tooltip" title="Название поля для секции должно быть уникальным!">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Width</label>
+                    <label>Ширина</label>
                     <select class="form-control" v-model="control.className">
                         <option v-for="(label, value) in widthOptions" :value="value">{{label}}</option>
                     </select>
@@ -33,41 +33,41 @@
         <div class="row mt-2">
             <div class="col-md-12">
                 <label>
-                    <input type="checkbox" name="isRequired" v-model="control.required"> Required?
+                    <input type="checkbox" name="isRequired" v-model="control.required"> Обязательное?
                 </label>
 
                 <label>
-                    <input type="checkbox" name="isReadonly" v-model="control.readonly"> Readonly?
+                    <input type="checkbox" name="isReadonly" v-model="control.readonly"> Только для чтения?
                 </label>
 
                 <!-- for text -->
                 <label v-if="control.type === 'text'">
-                    <input type="checkbox" name="isMultiLine" v-model="control.isMultiLine"> Multi-line?
+                    <input type="checkbox" name="isMultiLine" v-model="control.isMultiLine"> Несколько строк?
                 </label>
 
                 <!-- for number -->
                 <label v-if="control.type === 'number'">
-                    <input type="checkbox" name="isInteger" v-model="control.isInteger"> Integer Only
+                    <input type="checkbox" name="isInteger" v-model="control.isInteger"> Целое число
                 </label>
 
                 <!-- for datepicker -->
                 <label v-if="control.type === 'datepicker'">
-                    <input type="checkbox" name="isTodayValue" v-model="control.isTodayValue"> Get Current Day?
+                    <input type="checkbox" name="isTodayValue" v-model="control.isTodayValue"> Текущая дата?
                 </label>
 
                 <!-- for timepicker -->
                 <label v-if="control.type === 'timepicker'">
-                    <input type="checkbox" name="isNowTimeValue" v-model="control.isNowTimeValue"> Get Current Time?
+                    <input type="checkbox" name="isNowTimeValue" v-model="control.isNowTimeValue"> Текущее время?
                 </label>
 
                 <!-- for checkbox -->
                 <label v-if="control.type === 'checkbox'">
-                    <input type="checkbox" name="isChecked" v-model="control.isChecked"> Checked?
+                    <input type="checkbox" name="isChecked" v-model="control.isChecked"> Отмеченный?
                 </label>
 
                 <!-- for select -->
                 <label v-if="control.type === 'select'">
-                    <input type="checkbox" name="isMultiple" v-model="control.isMultiple"> Multiple Select
+                    <input type="checkbox" name="isMultiple" v-model="control.isMultiple"> Множественный выбор
                 </label>
             </div>
         </div>
@@ -76,7 +76,7 @@
         <div class="row mt-2" v-if="control.type === 'number'">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Decimal places</label>
+                    <label>Знаков после запятой</label>
                     <input type="number" min="0" max="5" class="form-control decimalPlaces"
                            v-model="control.decimalPlace" :disabled="control.isInteger">
                 </div>
@@ -87,9 +87,9 @@
         <div class="row mt-2" v-if="control.type === 'select'">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Data Source</label> <br />
-                    <label><input type="radio" name="isAjax" v-model="control.isAjax":value="false">Static Source</label>
-                    <label><input type="radio" name="isAjax" v-model="control.isAjax" :value="true">Ajax Source</label>
+                    <label>Источник данных</label> <br />
+                    <label><input type="radio" name="isAjax" v-model="control.isAjax":value="false">Статический</label>
+                    <label><input type="radio" name="isAjax" v-model="control.isAjax" :value="true">Ajax-запрос</label>
                 </div>
 
                 <table class="table table-bordered table-striped" v-if="!control.isAjax">
@@ -98,8 +98,8 @@
                             <th class="text-center" width="10%">
                                 <font-awesome-icon icon="plus" class="clickable" @click="addOption"></font-awesome-icon>
                             </th>
-                            <th width="40%">Value</th>
-                            <th>Text</th>
+                            <th width="40%">Значение</th>
+                            <th>Текст</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -118,7 +118,7 @@
                 </table>
                 <div class="form-group" v-else>
                     <label>
-                        Ajax URL
+                        URL для Ajax-запроса
                         <a href="javascript:void(0)" @click="dataAjaxModal"><i class="fa fa-info-circle"></i></a>
                     </label>
                     <input type="text" class="form-control ajaxDataUrl" v-model="control.ajaxDataUrl">
@@ -129,7 +129,7 @@
         <div class="row mt-2" v-if="control.type === 'datepicker'">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Date Format</label>
+                    <label>Формат даты</label>
                     <select2-control :options="dateFormatOptions" v-model="control.dateFormat"></select2-control>
                 </div>
             </div>
@@ -138,7 +138,7 @@
         <div class="row mt-2" v-if="control.type === 'timepicker'">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Time Format</label>
+                    <label>Формат времени</label>
                     <select2-control :options="timeFormatOptions" v-model="control.timeFormat"></select2-control>
                 </div>
             </div>
@@ -147,7 +147,7 @@
         <div class="row mt-2" v-if="control.type !== 'checkbox'">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Default value</label>
+                    <label>Значение по-умолчанию</label>
                     <input type="text" class="form-control" v-model="control.defaultValue">
                 </div>
             </div>
@@ -156,13 +156,13 @@
         <div class="row mt-2">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Control label</label>
+                    <label>Заголовок</label>
                     <input type="text" class="form-control" v-model="control.label">
                 </div>
                 <div class="form-group">
-                    <label><input type="checkbox" v-model="control.labelBold"> Bold</label>
-                    <label><input type="checkbox" v-model="control.labelItalic"> Italic</label>
-                    <label><input type="checkbox" v-model="control.labelUnderline"> Underline</label>
+                    <label><input type="checkbox" v-model="control.labelBold"> Жирный</label>
+                    <label><input type="checkbox" v-model="control.labelItalic"> Курсив</label>
+                    <label><input type="checkbox" v-model="control.labelUnderline"> Подчеркивание</label>
                 </div>
             </div>
         </div>

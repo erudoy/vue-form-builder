@@ -9,8 +9,8 @@ var FORM_CONSTANTS = {};
 var CONTROL_CONSTANTS = {};
 
 FORM_CONSTANTS.SectionLayout = {
-  collapse: "Collapse",
-  tab: "Tab",
+  collapse: "Обычный",
+  tab: "Вкладки",
   // inner: "Inner Parent",
 };
 
@@ -84,44 +84,44 @@ FORM_CONSTANTS.Control = {
 
 FORM_CONSTANTS.Type = {
     text: {
-        label:"Text Input",
+        label:"Текстовое поле",
         icon: faEdit
     },
     number: {
-        label:"Number Input",
+        label:"Числовое поле",
         icon: faCalculator
     },
     datepicker: {
-        label: "Date Picker",
+        label: "Выбор даты",
         icon: faCalendarAlt
     },
     timepicker: {
-        label:"Time Picker",
+        label:"Выбор времени",
         icon: faClock
     },
     select: {
-        label: "Select Option",
+        label: "Список",
         icon: faDatabase
     },
     checkbox: {
-        label:"Checkbox",
+        label:"Флажок",
         icon: faCheck
     },
 };
 
 FORM_CONSTANTS.WidthOptions = {
-    "col-md-1": "Width 1 parts",
-    "col-md-2": "Width 2 parts",
-    "col-md-3": "Width 3 parts",
-    "col-md-4": "Width 4 parts",
-    "col-md-5": "Width 5 parts",
-    "col-md-6": "Width 6 parts",
-    "col-md-7": "Width 7 parts",
-    "col-md-8": "Width 8 parts",
-    "col-md-9": "Width 9 parts",
-    "col-md-10": "Width 10 parts",
-    "col-md-11": "Width 11 parts",
-    "col-md-12": "Width 12 parts",
+    "col-md-1": "Ширина - 1 часть",
+    "col-md-2": "Ширина - 2 части",
+    "col-md-3": "Ширина - 3 части",
+    "col-md-4": "Ширина - 4 части",
+    "col-md-5": "Ширина - 5 части",
+    "col-md-6": "Ширина - 6 части",
+    "col-md-7": "Ширина - 7 части",
+    "col-md-8": "Ширина - 8 части",
+    "col-md-9": "Ширина - 9 части",
+    "col-md-10": "Ширина - 10 части",
+    "col-md-11": "Ширина - 11 части",
+    "col-md-12": "Ширина - 12 части",
 };
 
 FORM_CONSTANTS.OptionDefault = {
@@ -131,19 +131,19 @@ FORM_CONSTANTS.OptionDefault = {
 
 CONTROL_CONSTANTS.DateFormat = {
     // rule: date picker format => moment format
-    'dd/mm/yy': "D/M/YYYY",
-    'dd-mm-yy': "D-M-YYYY",
-    'mm/dd/yy': "M/D/YYYY",
-    'mm-dd-yy': "M/D/YYYY",
-    'yy/mm/dd': "YYYY/M/D",
-    'yy-mm-dd': "YYYY-M-D",
+    'dd/mm/yy': "Д/М/ГГГГ",
+    'dd-mm-yy': "Д-М-ГГГГ",
+    'mm/dd/yy': "М/Д/ГГГГ",
+    'mm-dd-yy': "М/Д/ГГГГ",
+    'yy/mm/dd': "ГГГГ/М/Д",
+    'yy-mm-dd': "ГГГГ-М-Д",
 };
 
 CONTROL_CONSTANTS.TimeFormat = {
-    'H:m': 'H:m',
-    'HH:mm': 'HH:mm',
-    'h:m p': "h:m A",
-    'hh:mm p': "hh:mm A"
+    'H:m': 'Ч:м',
+    'HH:mm': 'ЧЧ:мм',
+    'h:m p': "ч:м A",
+    'hh:mm p': "чч:мм A"
 };
 
 export {
