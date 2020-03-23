@@ -18,8 +18,8 @@
                         <h4>{{controlInfo.label}}</h4>
                     </div>
                     <div class="col-md-6 text-right">
-                        <button class="btn btn-default" @click="applyEditSidebar">Apply</button>
-                        <button class="btn btn-default" @click="closeEditSidebar">Close</button>
+                        <button class="btn btn-default" @click="applyEditSidebar">Применить</button>
+                        <button class="btn btn-default" @click="closeEditSidebar">Закрыть</button>
                     </div>
                 </div>
 

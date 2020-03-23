@@ -114,14 +114,14 @@ FORM_CONSTANTS.WidthOptions = {
     "col-md-2": "Ширина - 2 части",
     "col-md-3": "Ширина - 3 части",
     "col-md-4": "Ширина - 4 части",
-    "col-md-5": "Ширина - 5 части",
-    "col-md-6": "Ширина - 6 части",
-    "col-md-7": "Ширина - 7 части",
-    "col-md-8": "Ширина - 8 части",
-    "col-md-9": "Ширина - 9 части",
-    "col-md-10": "Ширина - 10 части",
-    "col-md-11": "Ширина - 11 части",
-    "col-md-12": "Ширина - 12 части",
+    "col-md-5": "Ширина - 5 частей",
+    "col-md-6": "Ширина - 6 частей",
+    "col-md-7": "Ширина - 7 частей",
+    "col-md-8": "Ширина - 8 частей",
+    "col-md-9": "Ширина - 9 частей",
+    "col-md-10": "Ширина - 10 частей",
+    "col-md-11": "Ширина - 11 частей",
+    "col-md-12": "Ширина - 12 частей",
 };
 
 FORM_CONSTANTS.OptionDefault = {
@@ -131,19 +131,19 @@ FORM_CONSTANTS.OptionDefault = {
 
 CONTROL_CONSTANTS.DateFormat = {
     // rule: date picker format => moment format
-    'dd/mm/yy': "Д/М/ГГГГ",
-    'dd-mm-yy': "Д-М-ГГГГ",
-    'mm/dd/yy': "М/Д/ГГГГ",
-    'mm-dd-yy': "М/Д/ГГГГ",
-    'yy/mm/dd': "ГГГГ/М/Д",
-    'yy-mm-dd': "ГГГГ-М-Д",
+    'dd/mm/yy': "D/M/YYYY",
+    'dd-mm-yy': "D-M-YYYY",
+    'mm/dd/yy': "M/D/YYYY",
+    'mm-dd-yy': "M/D/YYYY",
+    'yy/mm/dd': "YYYY/M/D",
+    'yy-mm-dd': "YYYY-M-D"
 };
 
 CONTROL_CONSTANTS.TimeFormat = {
-    'H:m': 'Ч:м',
-    'HH:mm': 'ЧЧ:мм',
-    'h:m p': "ч:м A",
-    'hh:mm p': "чч:мм A"
+    'H:m': 'H:m',
+    'HH:mm': 'HH:mm',
+    'h:m p': "h:m A",
+    'hh:mm p': "hh:mm A"
 };
 
 export {

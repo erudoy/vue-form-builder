@@ -17,7 +17,7 @@ var clear_error_field = function() {
 var validate_number_decimal = function (controlInfo) {
     clear_error_field();
     if (controlInfo.type === 'number' && controlInfo.decimalPlace < 0) {
-        SethPhatToaster.error("Decimal Places can't be negative.");
+        SethPhatToaster.error("Позиция десятичного разделителя не может быть отрицательной");
         $(".settingSidebar .decimalPlaces").addClass(CONTROL_ERROR_CLASS);
         return false;
     }
@@ -32,7 +32,7 @@ var validate_static_datasource = function (controlInfo) {
     clear_error_field();
     // validate here
     if (controlInfo.dataOptions.length <= 0) {
-        SethPhatToaster.error("Static Data Source can't be empty, please add at least 1 record.");
+        SethPhatToaster.error("Источник статических данных не может быть пустым. Необходимо добавить хотя бы одну запись");
         return false;
     }
 
@@ -49,7 +49,7 @@ var validate_static_datasource = function (controlInfo) {
         }
     });
     if (hasError) {
-        SethPhatToaster.error("Static Data Source has empty item, please check and fix it.");
+        SethPhatToaster.error("Источник статических двнных содержит пустое значение. Необходимо выполнить проверку и устранить ошибку");
         return false;
     }
 };
@@ -63,7 +63,7 @@ var validate_ajax_datasource = function (controlInfo) {
     clear_error_field();
     if (_.isEmpty(controlInfo.ajaxDataUrl)) {
         $(".settingSidebar .ajaxDataUrl").addClass(CONTROL_ERROR_CLASS);
-        SethPhatToaster.error("Ajax Data URL must not be empty.");
+        SethPhatToaster.error("Данные из URL Ajax-запроса не могут быть пустыми");
         return false;
     }
 };

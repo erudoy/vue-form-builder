@@ -3,7 +3,7 @@
         <form-builder-template v-if="type === 'template'" ref="FormBuilderTemplate" :form="form"></form-builder-template>
         <form-builder-gui v-else-if="type === 'gui'" ref="FormBuilderGui" :form="form"></form-builder-gui>
         <div v-else>
-            <p>Type not found, did you enter correct type <b>(template, gui)</b>?</p>
+            <p>Тип не найден. Вы действительно указали верный тип <b>(шаблон, просмотр)</b>?</p>
         </div>
     </div>
 </template>
@@ -137,7 +137,7 @@
 
                 var hasError = FormHandler.validate(this.form);
                 if (showError && hasError) {
-                    SethPhatToaster.error("There are errors on the page. Please rectify the errors so the action can be completed.");
+                    SethPhatToaster.error("Обнаружены ошибки. Для выполнения действия их необходимо устранить");
                 }
 
                 // true => no error | false => errors

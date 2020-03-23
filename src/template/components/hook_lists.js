@@ -37,7 +37,7 @@ Hooks.Sidebar = {
 Hooks.push = function (path, func) {
     var listHook = _.accessStr(Hooks, path);
     if(listHook == null) {
-        console.warn('Not found path: ' + path + ' in Hooks!');
+        console.warn('Не найден путь: ' + path + ' в хуках!');
         return false;
     }
     listHook.push(func);
